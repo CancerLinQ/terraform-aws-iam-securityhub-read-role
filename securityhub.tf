@@ -8,17 +8,9 @@ data "aws_iam_policy_document" "clq_securityhub_read_policy_permissions" {
   statement {
     effect = "Allow"
     actions = [
-      "securityhub:DescribeActionTargets",
-      "securityhub:DescribeHub",
-      "securityhub:DescribeStandards",
-      "securityhub:DescribeStandardsControls",
-      "securityhub:DisableImportFindingsForProduct",
-      "securityhub:GetEnabledStandards",
-      "securityhub:GetFindings",
-      "securityhub:GetInsightResults",
-      "securityhub:GetInsights",
-      "securityhub:GetMasterAccount",
-      "securityhub:ListTagsForResource"
+      "securityhub:Get*",
+      "securityhub:List*",
+      "securityhub:Describe*"
     ]
     resources = [
       "*"]
