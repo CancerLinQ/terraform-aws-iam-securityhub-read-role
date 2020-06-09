@@ -18,24 +18,6 @@ provider "aws" {
   profile = "default"
 }
 
-# This is needed to look up the kms_phi_encrypt_decrypt_iam_policy_arn
-data "terraform_remote_state" "universe" {
-  backend = "s3"
-  config = {
-    bucket  = "clq-terraform-account-states"
-    key     = "env:/${terraform.workspace}/terraform.tfstate"
-    region  = "us-east-1"
-    acl     = "bucket-owner-full-control"
-    profile = "terraform"
-  }
-}
-
-# Attaching the kms_phi_encrypt_decrypt_iam_policy to the operator-role policy
-#resource "aws_iam_role_policy_attachment" "operator_kms" {
-#  policy_arn = data.terraform_remote_state.universe.outputs.kms_phi_encrypt_decrypt_iam_policy_arn
-#  role       = aws_iam_role.securityhub-read-role.id
-#}
-
 # Creating AWS IAM securityhub read role
 resource "aws_iam_role" "securityhub-read-role" {
   name               = "clq-${terraform.workspace}-securityhub-read-role"
