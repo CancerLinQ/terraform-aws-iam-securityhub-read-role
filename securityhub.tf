@@ -10,7 +10,20 @@ data "aws_iam_policy_document" "clq_securityhub_read_policy_permissions" {
     actions = [
       "securityhub:Get*",
       "securityhub:List*",
-      "securityhub:Describe*"
+      "securityhub:Describe*",
+      "guardduty:Get*",
+      "guardduty:List*",
+      "inspector:Describe*",
+      "inspector:Get*",
+      "inspector:List*",
+      "inspector:Preview*",
+      "ec2:DescribeInstances",
+      "ec2:DescribeTags",
+      "sns:ListTopics",
+      "events:DescribeRule",
+      "events:ListRuleNamesByTarget",
+      "access-analyzer:Get*",
+      "access-analyzer:List*"
     ]
     resources = [
       "*"]
