@@ -30,5 +30,3 @@ resource "aws_iam_role_policy_attachment" "clq_securityhub_read_role_and_policy_
   policy_arn = aws_iam_policy.clq_securityhub_read_policy.arn
   role       = aws_iam_role.securityhub-read-role.id
 }
-
-// Test
