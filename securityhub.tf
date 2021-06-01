@@ -19,7 +19,9 @@ data "aws_iam_policy_document" "clq_securityhub_read_policy_permissions" {
       "inspector:Preview*",
       "sns:ListTopics",
       "access-analyzer:Get*",
-      "access-analyzer:List*"
+      "access-analyzer:List*",
+      "auditmanager:Get*",
+      "auditmanager:List*"
     ]
     resources = [
       "*"]
